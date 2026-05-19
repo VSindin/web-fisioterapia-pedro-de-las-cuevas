@@ -1,26 +1,60 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  /* ─── Clinical palette ─────────────────────────────────────────────── */
+  --color-primary:        #0ea5e9;   /* sky-500  — azul clínico moderno   */
+  --color-primary-dark:   #0284c7;   /* sky-600  — hover / acento         */
+  --color-primary-deep:   #1e40af;   /* blue-800 — texto sobre claro      */
+  --color-secondary:      #14b8a6;   /* teal-500 — acento verde menta     */
+  --color-secondary-dark: #0d9488;   /* teal-600 — hover                  */
+  --color-surface:        #f8fafc;   /* slate-50 — fondo secciones        */
+  --color-surface-2:      #f1f5f9;   /* slate-100                         */
+  --color-border:         #e2e8f0;   /* slate-200                         */
+  --color-ink:            #0f172a;   /* slate-900 — texto principal       */
+  --color-ink-muted:      #475569;   /* slate-600 — texto secundario      */
+  --color-ink-subtle:     #94a3b8;   /* slate-400 — texto suave           */
+  --color-white:          #ffffff;
+  --color-navy:           #0f172a;   /* footer / secciones oscuras        */
+
+  /* ─── Typography ───────────────────────────────────────────────────── */
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ─── Overflow fix (iOS/Safari) ────────────────────────────────────── */
+html {
+  overflow-x: hidden;
+  max-width: 100%;
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+  font-family: var(--font-sans);
+  background-color: #ffffff;
+  color: #0f172a;
 }
+
+/* ─── Focus visible ─────────────────────────────────────────────────── */
+*:focus-visible {
+  outline: 2px solid #0ea5e9;
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+
+/* ─── Hero animations (CSS-only, no FOIC) ──────────────────────────── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.hero-eyebrow { animation: fadeIn  0.5s ease 0.05s both; }
+.hero-title   { animation: fadeUp  0.7s ease 0.2s  both; }
+.hero-sub     { animation: fadeUp  0.6s ease 0.4s  both; }
+.hero-ctas    { animation: fadeUp  0.6s ease 0.55s both; }
+.hero-badge   { animation: fadeIn  0.5s ease 0.75s both; }
+.hero-photo   { animation: fadeIn  0.9s  ease 0.1s  both; }
