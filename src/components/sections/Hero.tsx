@@ -42,11 +42,6 @@ export default function Hero() {
       <div className="relative z-10 max-w-6xl mx-auto px-8 sm:px-12 md:px-16 lg:px-20 w-full">
         <div className="max-w-lg">
 
-          {/* Eyebrow */}
-          <p className="hero-eyebrow font-sans text-xs font-semibold tracking-[0.22em] uppercase mb-7" style={{ color: 'rgba(186,230,255,0.75)' }}>
-            Fisioterapia deportiva · Tres Cantos, Madrid
-          </p>
-
           {/* H1 — logo-style typographic treatment */}
           <h1 id="hero-heading" className="hero-title mb-8">
             <div className="h-px mb-5" style={{ background: 'rgba(255,255,255,0.22)' }} />
