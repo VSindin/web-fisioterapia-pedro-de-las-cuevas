@@ -88,7 +88,7 @@ export const PRECIOS = [
   },
   {
     label: 'Bono de 5 sesiones',
-    price: '220€',
+    price: '225€',
     description: 'Comprando nuestro bono de 5 sesiones, lograrás un descuento de 5€ en cada una de tus citas.',
     note: '*Válido durante un año desde la fecha de compra',
     highlighted: true,
