@@ -67,7 +67,7 @@ export default function Hero() {
             <span
               className="block font-sans font-black uppercase leading-none text-white"
               style={{
-                fontSize: 'clamp(3.2rem, 7vw, 5.5rem)',
+                fontSize: 'clamp(2.55rem, 5.6vw, 4.4rem)',
                 letterSpacing: '0.06em',
               }}
             >

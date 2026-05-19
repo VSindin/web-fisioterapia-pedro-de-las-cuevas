@@ -1,7 +1,7 @@
 'use client'
 
 import { useRef, useEffect } from 'react'
-import { Phone, MessageCircle, MapPin, Mail, Clock } from 'lucide-react'
+import { MessageCircle, Clock } from 'lucide-react'
 import { BUSINESS, SCHEDULE, NAV_LINKS } from '@/constants'
 
 export default function Footer() {
@@ -24,49 +24,19 @@ export default function Footer() {
       className="fixed bottom-0 left-0 right-0 z-0 bg-navy text-white min-h-[80vh] md:min-h-0"
       aria-label="Pie de página"
     >
-      <div className="max-w-6xl mx-auto px-5 sm:px-8 pt-10 pb-10 md:pt-12 md:pb-10">
+      <div className="max-w-6xl mx-auto px-5 sm:px-8 pt-12 pb-10 md:pt-16 md:pb-12">
 
-        {/* Brand */}
-        <div className="mb-8 md:mb-10">
-          <p className="font-sans font-bold text-xl text-white mb-1">{BUSINESS.shortName}</p>
-          <p className="font-sans text-slate-400 text-sm">Fisioterapia · Tres Cantos, Madrid</p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10 mb-10">
-
-          {/* Contact */}
-          <div>
-            <h3 className="font-sans text-xs font-semibold tracking-widest uppercase text-slate-400 mb-4">Contacto</h3>
-            <ul className="space-y-3">
-              {[
-                { href: BUSINESS.phoneHref,     Icon: Phone,         label: BUSINESS.phone },
-                { href: BUSINESS.whatsappHref,  Icon: MessageCircle, label: 'WhatsApp', external: true },
-                { href: BUSINESS.emailHref,     Icon: Mail,          label: BUSINESS.email },
-                { href: BUSINESS.googleMapsUrl, Icon: MapPin,        label: BUSINESS.address.full, external: true },
-              ].map(({ href, Icon, label, external }) => (
-                <li key={href}>
-                  <a
-                    href={href}
-                    {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
-                    className="flex items-start gap-3 text-slate-400 hover:text-white transition-colors font-sans text-sm"
-                  >
-                    <Icon size={14} aria-hidden className="shrink-0 text-primary mt-0.5" />
-                    <span>{label}</span>
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 mb-12">
 
           {/* Schedule */}
           <div>
-            <h3 className="font-sans text-xs font-semibold tracking-widest uppercase text-slate-400 mb-4 flex items-center gap-2">
+            <h3 className="font-sans text-xs font-semibold tracking-widest uppercase text-slate-400 mb-6 flex items-center gap-2">
               <Clock size={12} aria-hidden />
               Horario
             </h3>
-            <ul className="space-y-1.5">
+            <ul className="space-y-3">
               {SCHEDULE.map((s) => (
-                <li key={s.day} className="flex justify-between gap-4 font-sans text-sm">
+                <li key={s.day} className="flex justify-between gap-6 font-sans text-sm">
                   <span className={s.closed ? 'text-slate-600' : 'text-slate-400'}>{s.day}</span>
                   <span className={s.closed ? 'text-slate-600' : 'text-white/80 tabular-nums'}>{s.hours}</span>
                 </li>
@@ -75,10 +45,10 @@ export default function Footer() {
           </div>
 
           {/* Quick links + CTA */}
-          <div className="flex flex-col gap-5">
+          <div className="flex flex-col gap-8">
             <div>
-              <h3 className="font-sans text-xs font-semibold tracking-widest uppercase text-slate-400 mb-4">Secciones</h3>
-              <ul className="space-y-2">
+              <h3 className="font-sans text-xs font-semibold tracking-widest uppercase text-slate-400 mb-6">Secciones</h3>
+              <ul className="space-y-3">
                 {NAV_LINKS.map((l) => (
                   <li key={l.href}>
                     <a href={l.href} className="font-sans text-sm text-slate-400 hover:text-white transition-colors">
@@ -92,12 +62,13 @@ export default function Footer() {
               href={BUSINESS.whatsappHref}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 bg-primary hover:bg-primary-dark text-white font-sans font-semibold text-sm px-5 py-3.5 rounded-xl transition-colors min-h-[48px]"
+              className="inline-flex items-center justify-center gap-2 bg-primary hover:bg-primary-dark text-white font-sans font-semibold text-sm px-5 py-3.5 rounded-xl transition-colors min-h-[48px] self-start"
             >
               <MessageCircle size={16} aria-hidden />
               Pedir cita por WhatsApp
             </a>
           </div>
+
         </div>
 
         {/* Bottom */}
